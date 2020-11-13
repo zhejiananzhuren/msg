@@ -1,0 +1,373 @@
+//protoc --go_out=plugins=grpc:. room.proto
+syntax = "proto3";
+
+package msg;
+
+enum CMDKIND //消息种类
+{
+    //心跳 --网关通知游戏
+    HEART = 0; 
+    //上线消息 ---网关通知游戏
+    ONLINE = 1; 
+    //离开消息 ---游戏通知网关
+    LEAVE_ROOM = 2;
+    //用户断线消息 --网关通知游戏
+    EXIT = 3; 
+    //逻辑消息 ---网关逻辑消息
+    LOGIC = 4;
+    //用户点控变化
+    PROB = 5;
+    //创建房间
+    CREAT_TABLE = 6;
+    //进入房间
+    INTO_TABLE = 7;
+}
+
+
+//服务器通知客户端消息
+message S2CNoticeMsg{
+    //命令
+    int32 cmd = 1;
+    //用户ID
+    int64 userId = 2;
+    //消息体
+    bytes body = 3;
+    //消息id
+    int64 msgId = 4;
+}
+
+message C2SCreateTable {
+    int64 sb = 1;
+    int64 buyin = 2;
+}
+
+message C2SIntoTable {
+    int64 tableId = 1;
+}
+
+//点控
+message S2CPointCtl{
+    //概率
+    int32 prob = 1;
+}
+
+message GameLog {
+    int64 userId = 2;
+    string content = 3;
+}
+
+message C2SGameLog {
+    string matchId = 1;
+    int64 gameId = 2;
+    repeated GameLog GameLogs = 3;
+}
+
+message MarqueeConfig {
+    int64 platformId = 1;
+    int64 amountLimit = 2;
+    string content = 3;
+    string roomId = 4;
+    int64 ruleId = 5;
+    string specialCondition = 6;
+}
+
+message S2CMarqueeConfigs {
+    repeated MarqueeConfig MarqueeConfigs = 1;
+}
+
+message C2SMarquee {
+      //游戏id
+      int64 gameId = 1;
+      //业主id
+      int64 platformId = 2;
+      //广播内容
+      string content = 3;
+      //规则id 来自config
+      int64 ruleId = 4;
+}
+
+enum RESULT //返回类型
+{
+    VOID2 = 0; //无用
+    SUCCESS = 1; //成功
+    ERROR_ROOM = 2; //失败
+}
+
+
+message C2SConfig {
+    //服务唯一标示
+    string token = 1;
+    //桌子数量
+    int32 cmd = 2;
+     //房间桌子数量
+    int32 tableNum = 3;   
+    //房间桌子的最大容纳人数
+	int32 Max = 4;   
+    //房间桌子的最小开赛数
+	int32 Min = 5; 
+    //正在允许的游戏房间
+    repeated int64 rooms = 6;
+}
+
+message Broadcast{
+    //用户ID
+    repeated int64 userId = 1;
+    //消息体
+    bytes body = 2;
+}
+
+message C2SNoticeMsg {
+    //命令
+    int32 cmd = 1;
+    //用户ID
+    int64 userId = 2;
+    //客户端唯一标示
+    string token = 3;
+    //消息体
+    bytes body = 4;
+    //消息id
+    int64 msgId = 5;
+}
+
+message C2SUserStart{
+    //用户id
+    repeated int64 userids = 1;
+     //游戏id
+    int64 gameId = 2;
+    //局编号
+    string matchId = 3;
+    //房间号
+    int64 roomId = 4;
+    //桌子id
+    int32 tableId = 5;
+    //业主id
+    int64 platformId = 6;
+
+}
+message UserUpAndDown{
+     //用户金币变动钱
+     int64 changeMoney = 1;
+     //扣税钱
+     int64 taxMoney = 2;
+     //流水号
+     string num = 3;
+     //局
+     string gameNum = 4;
+     //身份  1 普通用户 2机器人
+     int32 role =5;
+     //用户id
+     int64 userid = 6;
+     //业主id
+     int64 platformId = 7;
+     //上下分类型	int	是	1:投注 2:结算
+     int32 scoreType = 8;
+     //业务类型	int	是	游戏字典
+     int32 bussType = 9;
+     //盈利金额	int64	是	上分结算时传入
+     int64 profiltAmount = 10;
+ }
+message C2SUserUpAndDown{
+     repeated UserUpAndDown lists = 1;
+}
+
+
+//血池修改
+message S2CRoomCtl{
+    //业主id
+    int64 roomid = 1;
+    //概率
+    int32 prob=2;
+}
+
+message S2CRobotConfig{
+     //房间
+    int64 roomId = 1;
+    //操作
+    Action act=2;
+    int64 platformId=3;
+    enum Action{
+        UNKOWN = 0;
+        ON = 1;
+        OFF = 2;
+    }
+}
+
+message CmdRoomConfig{
+    int64 RoomId = 1;
+    int64 EntranceRestrictions =2; //入场限制
+    string AdviceConfig = 3;
+    int64 RoomRate = 4; //房间税率
+    int32 Level = 5; //房间等级
+    bool IsOpenAiRobot =6;
+}
+//匹配消息
+message S2CCmdMatch{
+    //用户ID
+    int64 userId = 1;
+    //用户金币
+    int64 balance = 2;
+    //用户头像
+    string avatar = 3;
+    //用户昵称
+    string nick = 4;
+    //账号
+    string account = 5;
+    //设备码
+    string equipmentCode = 6;
+    //游戏id
+	int64 gameId = 7;
+    //游戏名称
+	string gameName = 8;
+    //业主id
+    int64 platformId = 9;
+    //
+    bool  isRobot = 10;
+    //配置
+    CmdRoomConfig room = 11;
+    //指定坐下的位置 为-1表示不指定
+    int64 tableId = 12;
+    //点控概率
+    int32 pointctl = 13;
+    //血池
+    int32 roomctl = 14;
+    //性别
+    int32 sex = 15;
+    //城市
+    string city = 16;
+    //IP
+    string ip = 17;
+}
+
+message C2SChipCreat{
+    //用户ID
+    int64 userId = 1;
+    //业主id
+    int64 platformId = 2;
+    int64 amount =3; //数量
+    string note =4; //注释
+}
+
+message C2SCmdMatch{
+    //结果
+    int32 result = 1;
+    //用户ID
+    int64 userId = 2;
+    //桌子编号
+    int32 tableNum = 3;
+    //椅子编号
+    int32 chairNum = 4;
+}
+
+message C2SCmdGameEnds{
+    repeated C2SCmdGameEnd GameEnds = 1;
+}
+message C2SCmdGameEnd{
+    //用户id
+    int64 userId = 1;
+    //游戏id
+    int64 gameId = 2;
+    //局编号
+    string matchId = 3;
+    //房间号
+    int64 roomId = 4;
+    //桌子id
+    int32 tableId = 5;
+    //椅子号
+    int32 chairId = 6;
+    //盈利金额
+    int64 profitAmount = 7;
+    //结算牌
+    string endCards = 8;
+    //抽水金额
+    int64 drawAmount = 9;
+    //身份  1 普通用户 2机器人
+    int32 role =10;
+   //业主id
+    int64 platformId = 11;
+    //总下注
+    int64 betsAmount = 12;
+    //产出
+    int64 outputAmount = 13;
+}
+
+//获取机器人消息
+message GetRobotRequest{
+    //逻辑id
+    int64 tableId = 1;
+    //房间id
+    int64 roomId = 2;
+    //业主id
+    int64 platformId = 3;
+    //数量
+    int32 num = 4;
+    //服务器token
+    string token =5;
+}
+
+message GetRobotResult{
+}
+
+//归还机器人消息
+message ReturnRobotRequest{
+    //用户ID
+    int64 userId = 1;
+}
+
+message ReturnRobotResult{
+}
+
+//大厅广播消息
+message BroadcastRequest{
+     //业主id
+    int64 platformId = 1;
+     //业主id
+    int64 roomId = 2;
+     //游戏id
+    int64 gameId = 3;
+    //消息内容
+    bytes body = 4;
+}
+
+message BroadcastResult{
+}
+
+//获取指定房间的血池吐分概率
+message RoomProbRequest{
+     //房间id
+    int64 roomId = 1;
+}
+
+message RoomProbResult{
+    int64 prob = 1; //概率
+}
+
+message ColectHanselReq {
+    int64 roomid = 1;
+    int32 ration = 2;
+    int64 userId = 3;
+    string matchId = 4;
+}
+
+message ColectHanselRsp {
+    int64 total = 1;
+    int64 count = 2;
+}
+
+service Room {
+    //通知客户端消息
+    rpc NoticeClient(C2SConfig) returns (stream S2CNoticeMsg) {}
+    //通知服务端消息
+    rpc NoticeServer(stream C2SNoticeMsg) returns (stream S2CNoticeMsg) {}
+    //获取机器人
+    rpc GetRobot(GetRobotRequest) returns (GetRobotResult){}
+    //归还机器人
+    rpc ReturnRobot(ReturnRobotRequest) returns (ReturnRobotResult){}
+    //大厅广播消息
+    rpc Broadcast(BroadcastRequest) returns (BroadcastResult){}
+    //获取指定房间的血池吐分概率
+    rpc GetRoomProb(RoomProbRequest) returns (RoomProbResult){}
+    //计算用从赏金池拉金币
+    rpc Collect(ColectHanselReq) returns(ColectHanselRsp){} 
+
+}
+
