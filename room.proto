@@ -18,9 +18,22 @@ enum CMDKIND //消息种类
     //用户点控变化
     PROB = 5;
     //创建房间
-    CREAT_TABLE = 6;
+    CREAT_TABLE = 6;        //C2SCreateTable
     //进入房间
     INTO_TABLE = 7;
+}
+
+message C2SNoticeMsg {
+    //命令
+    int32 cmd = 1;
+    //用户ID
+    int64 userId = 2;
+    //客户端唯一标示
+    string token = 3;
+    //消息体
+    bytes body = 4;
+    //消息id
+    int64 msgId = 5;
 }
 
 
@@ -45,11 +58,6 @@ message C2SIntoTable {
     int64 tableId = 1;
 }
 
-//点控
-message S2CPointCtl{
-    //概率
-    int32 prob = 1;
-}
 
 message GameLog {
     int64 userId = 2;
@@ -86,12 +94,6 @@ message C2SMarquee {
       int64 ruleId = 4;
 }
 
-enum RESULT //返回类型
-{
-    VOID2 = 0; //无用
-    SUCCESS = 1; //成功
-    ERROR_ROOM = 2; //失败
-}
 
 
 message C2SConfig {
@@ -116,34 +118,8 @@ message Broadcast{
     bytes body = 2;
 }
 
-message C2SNoticeMsg {
-    //命令
-    int32 cmd = 1;
-    //用户ID
-    int64 userId = 2;
-    //客户端唯一标示
-    string token = 3;
-    //消息体
-    bytes body = 4;
-    //消息id
-    int64 msgId = 5;
-}
 
-message C2SUserStart{
-    //用户id
-    repeated int64 userids = 1;
-     //游戏id
-    int64 gameId = 2;
-    //局编号
-    string matchId = 3;
-    //房间号
-    int64 roomId = 4;
-    //桌子id
-    int32 tableId = 5;
-    //业主id
-    int64 platformId = 6;
 
-}
 message UserUpAndDown{
      //用户金币变动钱
      int64 changeMoney = 1;
@@ -171,13 +147,6 @@ message C2SUserUpAndDown{
 }
 
 
-//血池修改
-message S2CRoomCtl{
-    //业主id
-    int64 roomid = 1;
-    //概率
-    int32 prob=2;
-}
 
 message S2CRobotConfig{
      //房间
@@ -238,14 +207,6 @@ message S2CCmdMatch{
     string ip = 17;
 }
 
-message C2SChipCreat{
-    //用户ID
-    int64 userId = 1;
-    //业主id
-    int64 platformId = 2;
-    int64 amount =3; //数量
-    string note =4; //注释
-}
 
 message C2SCmdMatch{
     //结果
@@ -331,27 +292,6 @@ message BroadcastRequest{
 message BroadcastResult{
 }
 
-//获取指定房间的血池吐分概率
-message RoomProbRequest{
-     //房间id
-    int64 roomId = 1;
-}
-
-message RoomProbResult{
-    int64 prob = 1; //概率
-}
-
-message ColectHanselReq {
-    int64 roomid = 1;
-    int32 ration = 2;
-    int64 userId = 3;
-    string matchId = 4;
-}
-
-message ColectHanselRsp {
-    int64 total = 1;
-    int64 count = 2;
-}
 
 service Room {
     //通知客户端消息
@@ -365,9 +305,6 @@ service Room {
     //大厅广播消息
     rpc Broadcast(BroadcastRequest) returns (BroadcastResult){}
     //获取指定房间的血池吐分概率
-    rpc GetRoomProb(RoomProbRequest) returns (RoomProbResult){}
-    //计算用从赏金池拉金币
-    rpc Collect(ColectHanselReq) returns(ColectHanselRsp){} 
 
 }
 
