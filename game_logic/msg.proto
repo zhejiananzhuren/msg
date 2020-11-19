@@ -25,17 +25,19 @@ enum ReMsgIDS2C{
     notify_act = 2;//通知该玩家发言
 }
 
+//开始游戏[]
 message S2CStart {
     bytes hole_cards = 1;//手牌
 }
 
+//通知玩家发言[]
 message S2CNotifyAct {
     int64 uid = 1;//发言玩家id
     int64 time = 2;//倒计时 秒
 }
 
 
-//场景消息
+//场景消息[]
 message S2CScene{
 	repeated S2CUser users = 1;//场上的用户
 	bytes com_cards = 2;//公牌
@@ -52,6 +54,7 @@ message S2CScene{
 
 }
 
+//用户信息[]
 message S2CUser {
     int64 uid = 1;
     string name = 2;//昵称
@@ -60,4 +63,23 @@ message S2CUser {
     int64 bet = 5;//当前已下注筹码
     int32 state = 6;//当前状态 在玩儿、弃牌、
     int32 action = 7;//当前操作 跟注、加注、allin、弃牌
+}
+
+//结束比赛[]
+message S2CEndGame {
+    repeated Pot pots = 1;//各个池子赢家
+    repeated S2CHoleCards user_hole_cards = 2; //各个玩家手牌
+
+}
+
+//玩家id对应手牌[]
+message S2CHoleCards {
+    int64 uid = 1;//玩家id
+    bytes hole_cards = 2;//手牌
+}
+
+//分池统计[]
+message Pot {
+    int64 stack = 1;//池子金额
+    int64 winner = 2;//赢家
 }
