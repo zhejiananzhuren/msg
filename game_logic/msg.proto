@@ -21,8 +21,9 @@ message C2SChat {
 //枚举消息类型
 enum ReMsgIDS2C{
 	scene = 0;//场景消息 S2CScene
-	start = 1; //开始游戏 发牌
-    notify_act = 2;//通知该玩家发言
+	start = 1; //开始游戏 发牌 S2CStart
+    notify_act = 2;//通知该玩家发言 S2CNotifyAct
+    end_game = 3;//结束比赛 S2CEndGame
 }
 
 //开始游戏[]
