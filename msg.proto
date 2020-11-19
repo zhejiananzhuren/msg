@@ -63,7 +63,7 @@ enum CMDKIND //消息种类
     INTO_TABLE = 6;
 }
 
-//服务器通知客户端消息
+//服务器通知客户端消息[0]
 message S2CNoticeMsg{
     //命令
     int32 cmd = 1;
@@ -75,11 +75,12 @@ message S2CNoticeMsg{
     int64 msgId = 4;
 }
 
-//跑马灯
+//跑马灯[]
 message S2CMarqueeConfigs {
     repeated MarqueeConfig MarqueeConfigs = 1;
 }
 
+//游戏逻辑消息
 message FrameMsg{
     int32 mainCmd = 1;  //主消息协议
     int32 subCmd = 2;   //次消息协议
@@ -87,14 +88,14 @@ message FrameMsg{
     int64 Time = 4;     //发出时间
 }
 
-//错误消息
+//错误消息[]
 message S2CGeneralError{
     ErrorType eType = 1; //错误类型
     string descript = 2; //描述
 }
 
 
-//用户余额
+//用户余额[]
 message S2CBalance{
     int64 balance = 1;
 }
@@ -113,7 +114,7 @@ message Config{
     string AdviceConfig = 5;
 }
 
-//配置列表消息
+//配置列表消息[]
 message S2CConfig{
     //用户ID
     int64 userId = 1;
@@ -138,25 +139,14 @@ message S2CConfig{
 }
 
 
-//用户进入
-message S2CEnter{
-    int64 userId = 1;  //用户ID
-    string head = 2; //头像url
-    int64 gold = 3;   //用户金币
-    string nickName = 4; //用户昵称
-    string sign = 5;   //用户签名
-    int32 tableId = 6;  //桌子号
-    int32 setId = 7;   //椅子号
-}
-
-//用户离开
+//用户离开[]
 message S2CLeave{
     //用户ID
     int64 userId = 1;
 }
 
 
-//匹配消息
+//匹配消息[]
 message S2CCmdMatch{
     //用户ID
     int64 userId = 1;

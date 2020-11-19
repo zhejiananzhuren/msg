@@ -1,0 +1,63 @@
+
+syntax = "proto3";
+
+//枚举消息类型
+enum MsgIDC2S{
+    act = 0 ;//发言   C2SAct
+    chat = 1;//聊天   C2SChat
+}
+
+message C2SAct {
+    int32 act = 1; // 0:check  1:call  2:raise  3:fold  4:allin
+    int64 stack = 2;
+}
+
+message C2SChat {
+    int32 type = 1; //消息类型
+    string msg = 2; //内容
+}
+
+
+//枚举消息类型
+enum ReMsgIDS2C{
+	scene = 0;//场景消息 S2CScene
+	start = 1; //开始游戏 发牌
+    notify_act = 2;//通知该玩家发言
+}
+
+message S2CStart {
+    bytes hole_cards = 1;//手牌
+}
+
+message S2CNotifyAct {
+    int64 uid = 1;//发言玩家id
+    int64 time = 2;//倒计时 秒
+}
+
+
+//场景消息
+message S2CScene{
+	repeated S2CUser users = 1;//场上的用户
+	bytes com_cards = 2;//公牌
+	int32 table_state = 3;//牌桌当前状态 ing、wait
+	int32 round = 4;//牌桌当前进行到哪 pre flop turn river
+	int64 sb = 5;//小盲
+	int64 bb = 6;//大盲
+	int64 dealer = 7;//庄家id
+	int64 cur_act_user = 8;//当前发言玩家
+	int64 bottom = 9;//盲注大小
+	int64 call = 10;//当前最小跟注金额
+	int64 pot = 11;//底池金额
+	bytes hole_cards = 12;//手牌
+
+}
+
+message S2CUser {
+    int64 uid = 1;
+    string name = 2;//昵称
+    string head = 3;//头像
+    int64 stack = 4;//玩家筹码
+    int64 bet = 5;//当前已下注筹码
+    int32 state = 6;//当前状态 在玩儿、弃牌、
+    int32 action = 7;//当前操作 跟注、加注、allin、弃牌
+}
