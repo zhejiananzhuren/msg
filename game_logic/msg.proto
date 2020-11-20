@@ -1,6 +1,15 @@
 
 syntax = "proto3";
 
+//游戏里的错误是20000起，大厅框架的错误10000起
+enum GameErrMsg {
+    err_no = 0;
+    err_score_not_enough = 20000;//余额不足
+    err_sit = 20001;//坐下失败
+    err_up = 20002; //起立失败
+}
+
+
 //枚举消息类型
 enum MsgIDC2S{
     act = 0 ;//发言   C2SAct
