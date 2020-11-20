@@ -5,11 +5,12 @@ syntax = "proto3";
 enum MsgIDC2S{
     act = 0 ;//发言   C2SAct
     chat = 1;//聊天   C2SChat
-    sit_up = 2;//坐下/起立 C2SSitUp
+    sitdown = 2;//坐下
+    up = 3;//起立
 }
 
-message C2SSitUp {
-    bool flag = 1; //false:起立 true：坐下
+message C2SSitDown {
+    int32 index = 1;//要坐下的某个位置
 }
 
 message C2SAct {
@@ -29,6 +30,9 @@ enum ReMsgIDS2C{
 	start = 1; //开始游戏 发牌 S2CStart
     notify_act = 2;//通知该玩家发言 S2CNotifyAct
     end_game = 3;//结束比赛 S2CEndGame
+    user_sit = 4;//玩家坐下
+    user_up = 5;//玩家起立
+    user_leave = 6;//玩家离开
 }
 
 //开始游戏[]
