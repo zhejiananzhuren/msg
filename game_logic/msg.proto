@@ -68,7 +68,7 @@ message S2CScene{
 	repeated S2CUser users = 1;//场上的用户
 	bytes com_cards = 2;//公牌
 	int32 table_state = 3;//牌桌当前状态 ing、wait
-	int32 round = 4;//牌桌当前进行到哪 pre flop turn river
+	int32 round = 4;//牌桌当前进行到哪   0,1,2,3 pre flop turn river
 	int64 sb = 5;//小盲
 	int64 bb = 6;//大盲
 	int64 dealer = 7;//庄家id
@@ -88,7 +88,7 @@ message S2CUser {
     int64 stack = 4;//玩家筹码
     int64 bet = 5;//当前已下注筹码
     int32 state = 6;//当前状态 在玩儿、弃牌、
-    int32 action = 7;//当前操作 跟注、加注、allin、弃牌
+    int32 action = 7;//当前操作 0:check 1:call 2:raise 3:fold 4:allin
 }
 
 //结束比赛[]
