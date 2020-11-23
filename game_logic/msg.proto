@@ -15,8 +15,8 @@ enum MsgIDC2S{
     act = 0 ;//发言   C2SAct
     chat = 1;//聊天   C2SChat
     sitdown = 2;//坐下 C2SSitDown
-    up = 3;//起立
-    auto_buyin = 4; C2SAutoBuyin
+    up = 3;//起立 C2SSitDown
+    auto_buyin = 4; //C2SAutoBuyin
 }
 
 message C2SAutoBuyin {
