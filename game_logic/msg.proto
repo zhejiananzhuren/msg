@@ -16,6 +16,11 @@ enum MsgIDC2S{
     chat = 1;//聊天   C2SChat
     sitdown = 2;//坐下 C2SSitDown
     up = 3;//起立
+    auto_buyin = 4;
+}
+
+message AutoBuyin {
+    bool flag = 1;//true：自动买入  false：取消自动买入
 }
 
 message C2SSitDown {
