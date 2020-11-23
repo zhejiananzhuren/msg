@@ -73,6 +73,14 @@ message S2CNotifyAct {
     int64 time = 2;//倒计时 秒
 }
 
+//玩家具体发言动作
+message S2CUserAct {
+    int64 uid = 1;//发言玩家
+    int32 action = 2;//当前操作 0:check 1:call 2:raise 3:fold 4:allin
+    int64 amount = 3;//金额
+    int64 remain = 4;//余额
+}
+
 
 //场景消息[]
 message S2CScene{
