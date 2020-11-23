@@ -48,6 +48,12 @@ enum ReMsgIDS2C{
     user_sit = 4;//玩家坐下 S2CUserSitUp
     user_up = 5;//玩家起立 S2CUserSitUp
     user_leave = 6;//玩家离开 S2CUserSitUp
+    user_buyin = 7;//通知有玩家买入
+}
+
+message S2CUserBuyin {
+    int64 uid = 1;
+    int64 stack = 2; //买入金额
 }
 
 //玩家坐下、起立
