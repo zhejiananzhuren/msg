@@ -50,6 +50,13 @@ enum ReMsgIDS2C{
     user_leave = 6;//玩家离开 S2CUserSitUp
     user_buyin = 7;//通知有玩家买入 S2CUserBuyin
     user_act = 8;//玩家具体发言操作 S2CUserAct
+    round_up = 9;//牌局阶段改变
+}
+
+//牌局阶段改变
+message S2CRoundUp {
+    int32 round = 1;// 0,1,2,3 pre flop turn river
+    bytes card = 2; // 发出的牌
 }
 
 message S2CUserBuyin {
