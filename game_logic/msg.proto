@@ -70,7 +70,7 @@ message S2CUserSitUp {
     int32 index = 2;//座位序号
 }
 
-//开始游戏[]
+//开始发牌[]
 message S2CStart {
     bytes hole_cards = 1;//手牌
 }
@@ -79,6 +79,8 @@ message S2CStart {
 message S2CNotifyAct {
     int64 uid = 1;//发言玩家id
     int64 time = 2;//倒计时 秒
+    int64 min = 3;//最小下注
+    int64 max = 4;//最大下注
 }
 
 //玩家具体发言动作
