@@ -73,6 +73,9 @@ message S2CUserSitUp {
 //开始发牌[]
 message S2CStart {
     bytes hole_cards = 1;//手牌
+    int64 dealer = 2;//庄家
+    int64 sb = 3;//小盲玩家id
+    int64 bb = 4;//大盲玩家id
 }
 
 //通知玩家发言[]
