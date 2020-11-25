@@ -137,6 +137,7 @@ message S2CUser {
     int32 state = 6;//当前状态 在玩儿、弃牌、
     int32 action = 7;//当前操作 0:check 1:call 2:raise 3:fold 4:allin
     int64 balance = 8;//余额
+    int32 index = 9;//座位号
 }
 
 //结束比赛[]
