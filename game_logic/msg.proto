@@ -92,6 +92,7 @@ message S2CUserAct {
     int32 action = 2;//当前操作 0:check 1:call 2:raise 3:fold 4:allin
     int64 amount = 3;//金额
     int64 remain = 4;//余额
+    int64 pot = 5;//底池
 }
 
 
