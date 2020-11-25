@@ -67,21 +67,17 @@ message S2CUserBuyin {
 
 //
 message S2CUserSitDown {
-    int64 uid = 1;
-    int32 index = 2;//座位序号
-    int64 stack = 3;//带入筹码
+   S2CUser user = 1;
 }
 
 //玩家坐下、起立
 message S2CUserSitUp {
     int64 uid = 1;
-    int32 index = 2;//座位序号
 }
 
 //玩家离开
 message S2CUserLeave {
     int64 uid = 1;
-    int32 index = 2;//座位序号
 }
 
 //开始发牌[]
