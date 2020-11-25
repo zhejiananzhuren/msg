@@ -45,7 +45,7 @@ enum ReMsgIDS2C{
 	start = 1; //开始游戏 发牌 S2CStart
     notify_act = 2;//通知该玩家发言 S2CNotifyAct
     end_game = 3;//结束比赛 S2CEndGame
-    user_sit = 4;//玩家坐下 S2CUserSitUp
+    user_sit = 4;//玩家坐下 S2CUserSitDown
     user_up = 5;//玩家起立 S2CUserSitUp
     user_leave = 6;//玩家离开 S2CUserSitUp
     user_buyin = 7;//通知有玩家买入 S2CUserBuyin
@@ -64,8 +64,21 @@ message S2CUserBuyin {
     int64 stack = 2; //买入金额
 }
 
+//
+message S2CUserSitDown {
+    int64 uid = 1;
+    int32 index = 2;//座位序号
+    int64 stack = 3;//带入筹码
+}
+
 //玩家坐下、起立
 message S2CUserSitUp {
+    int64 uid = 1;
+    int32 index = 2;//座位序号
+}
+
+//玩家离开
+message S2CUserLeave {
     int64 uid = 1;
     int32 index = 2;//座位序号
 }
