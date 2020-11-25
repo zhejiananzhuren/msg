@@ -135,6 +135,7 @@ message S2CEndGame {
 message S2CHoleCards {
     int64 uid = 1;//玩家id
     bytes hole_cards = 2;//手牌
+    int64 stack = 3;//玩家余额
 }
 
 //分池统计[]
