@@ -121,6 +121,8 @@ message S2CScene{
 	int64 pot = 11;//底池金额
 	bytes hole_cards = 12;//手牌
     int64 table_id = 13;//牌桌id
+    int64 ticker = 14;//倒计时时间 毫秒
+    int64 max_bet = 15;//最大下注
 }
 
 //用户信息[]
@@ -134,7 +136,7 @@ message S2CUser {
     int32 action = 7;//当前操作 0:check 1:call 2:raise 3:fold 4:allin
     int64 balance = 8;//余额
     int32 index = 9;//座位号
-    int64 max_bet = 10;//最大下注
+
 }
 
 //结束比赛[]
