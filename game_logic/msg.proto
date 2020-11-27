@@ -153,6 +153,7 @@ message S2CHoleCards {
     bytes hole_cards = 2;//手牌
     int64 stack = 3;//玩家余额
     bytes final_cards = 4;//最终要的5张牌
+    int32 card_type = 5;//牌型 
 }
 
 //分池统计[]
