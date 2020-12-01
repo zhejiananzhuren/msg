@@ -56,7 +56,7 @@ message S2CNoticeMsg{
 message S2COnline {
     bool isInTable = 1; // true:在牌桌
     int64 tableId = 2; // 牌桌id
-
+    int32 state = 3;// 0:成功登录 
 }
 
 //跑马灯[]
