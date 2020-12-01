@@ -27,7 +27,7 @@ enum CMDKIND //消息种类
     //心跳 --网关通知游戏
     HEART = 0;
     //上线消息 ---网关通知游戏
-    ONLINE = 1;
+    ONLINE = 1;   S2COnline
     //离开消息 ---游戏通知网关
     LEAVE_ROOM = 2;
     //用户断线消息 --网关通知游戏
@@ -50,6 +50,12 @@ message S2CNoticeMsg{
     bytes body = 3;
     //消息id
     int64 msgId = 4;
+}
+
+message S2COnline {
+    bool isInTable = 1; // true:在牌桌
+    int64 tableId = 2; // 牌桌id
+
 }
 
 //跑马灯[]
