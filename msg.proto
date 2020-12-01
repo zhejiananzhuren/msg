@@ -13,13 +13,13 @@ enum MSGTYPE //主从消息类型
 enum ErrorType
 {
     VOID3 = 0;
-    LoginFaild = 10001; //登陆失败
-    ServerFull = 10002; //服务器满了
-    EntranceRestrict = 10003; //用户不满足入房条件
-    GamingNoLeave = 10004;//游戏中途不能离开
-    GameDown = 10005; //游戏下线
-    GameMaintenance = 10006; //游戏维护
-    OtherLogin = 10007;//其他人使用该账号，挤下线
+    LoginFaild = 20001; //登陆失败
+    ServerFull = 20002; //服务器满了
+    EntranceRestrict = 20003; //用户不满足入房条件
+    GamingNoLeave = 20004;//游戏中途不能离开
+    GameDown = 20005; //游戏下线
+    GameMaintenance = 20006; //游戏维护
+    OtherLogin = 20007;//其他人使用该账号，挤下线
 }
 
 enum CMDKIND //消息种类
