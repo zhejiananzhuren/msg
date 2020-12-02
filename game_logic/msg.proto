@@ -125,6 +125,7 @@ message S2CScene{
     int64 ticker = 14;//倒计时时间 秒
     int64 max_bet = 15;//最大下注
     int64 total_time = 16;//玩家发言总时间
+    string agora_token = 17;//声网token
 }
 
 //用户信息[]
