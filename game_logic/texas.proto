@@ -4,9 +4,7 @@ syntax = "proto3";
 //游戏里的错误是20000起，大厅框架的错误10000起
 enum GameErrMsg {
     void = 0;
-    err_score_not_enough = 20000;//余额不足
-    err_sit = 20001;//坐下失败
-    err_up = 20002; //起立失败
+
 }
 
 
