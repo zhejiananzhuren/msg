@@ -54,7 +54,7 @@ enum ReMsgIDS2C{
 
 //
 message RoundFinish {
-
+    int64 pot = 1;//池中的钱
 }
 
 //牌局阶段改变
