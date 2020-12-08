@@ -49,6 +49,12 @@ enum ReMsgIDS2C{
     user_buyin = 7;//通知有玩家买入 S2CUserBuyin
     user_act = 8;//玩家具体发言操作 S2CUserAct
     round_up = 9;//牌局阶段改变 S2CRoundUp
+    round_finish = 10;//发消息9之前给客户端发，用作动画展示，汇拢金币
+}
+
+//
+message RoundFinish {
+
 }
 
 //牌局阶段改变
