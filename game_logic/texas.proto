@@ -130,6 +130,7 @@ message S2CScene{
     int64 max_bet = 15;//最大下注
     int64 total_time = 16;//玩家发言总时间
     string agora_token = 17;//声网token
+    bool auto_buyin = 18;// true:自动买入
 }
 
 //用户信息[]
