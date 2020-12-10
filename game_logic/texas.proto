@@ -144,7 +144,7 @@ message S2CUser {
     int32 action = 7;//当前操作 0:check 1:call 2:raise 3:fold 4:allin
     int64 balance = 8;//余额
     int32 index = 9;//座位号
-
+    string ip = 10; //ip地址，用于展示国旗
 }
 
 //结束比赛[]
