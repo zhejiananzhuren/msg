@@ -50,6 +50,7 @@ enum ReMsgIDS2C{
     user_act = 8;//玩家具体发言操作 S2CUserAct
     round_up = 9;//牌局阶段改变 S2CRoundUp
     round_finish = 10;//发消息9之前给客户端发，用作动画展示，汇拢金币 RoundFinish
+    user_offline = 11;//用户掉线
 }
 
 //
@@ -58,12 +59,16 @@ message RoundFinish {
     repeated S2CHoleCards users = 2;//各个玩家的手牌
 }
 
+message S2CUserOffline {
+    int64 uid = 1;
+}
+
 //牌局阶段改变
 message S2CRoundUp {
     int32 round = 1;// 0,1,2,3 pre flop turn river
     bytes card = 2; // 发出的牌
     int64 pot = 3;//池中的钱
-    int32 card_power = 4;//手牌牌力 万分率
+    int32 card_power = 4;//牌力 万分率
 }
 
 message S2CUserBuyin {
