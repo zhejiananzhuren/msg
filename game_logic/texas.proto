@@ -63,6 +63,7 @@ message S2CRoundUp {
     int32 round = 1;// 0,1,2,3 pre flop turn river
     bytes card = 2; // 发出的牌
     int64 pot = 3;//池中的钱
+    int32 card_power = 4;//手牌牌力 万分率
 }
 
 message S2CUserBuyin {
