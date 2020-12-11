@@ -91,7 +91,7 @@ message S2CStart {
     int64 dealer = 2;//庄家
     int64 sb = 3;//小盲玩家id
     int64 bb = 4;//大盲玩家id
-    int32 card_value = 5;//手牌牌力 万分率
+    int32 card_power = 5;//手牌牌力 万分率
 }
 
 //通知玩家发言[]
