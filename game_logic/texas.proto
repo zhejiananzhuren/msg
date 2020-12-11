@@ -61,6 +61,7 @@ message RoundFinish {
 
 message S2CUserOffline {
     int64 uid = 1;
+    bool online = 2;// true:上线 false：离线
 }
 
 //牌局阶段改变
