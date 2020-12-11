@@ -153,6 +153,7 @@ message S2CUser {
     int64 balance = 8;//余额
     int32 index = 9;//座位号
     string ip = 10; //ip地址，用于展示国旗
+    bool is_offline = 11;//true:离线
 }
 
 //结束比赛[]
