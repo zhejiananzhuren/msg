@@ -15,6 +15,11 @@ enum MsgIDC2S{
     sitdown = 2;//坐下 C2SSitDown
     up = 3;//起立 C2SSitDown
     auto_buyin = 4; //C2SAutoBuyin
+    show_cards = 5; //玩家亮牌 C2SShowCards
+}
+
+message C2SShowCards {
+
 }
 
 message C2SAutoBuyin {
@@ -51,6 +56,13 @@ enum ReMsgIDS2C{
     round_up = 9;//牌局阶段改变 S2CRoundUp
     round_finish = 10;//发消息9之前给客户端发，用作动画展示，汇拢金币 RoundFinish
     user_offline = 11;//用户掉线
+    show_cards = 12;//玩家亮牌  S2CShowCards
+}
+
+//玩家亮手牌
+message S2CShowCards {
+    int64 uid = 1;
+    bytes cards = 2;
 }
 
 //
