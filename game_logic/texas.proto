@@ -15,7 +15,7 @@ enum MsgIDC2S{
     sitdown = 2;//坐下 C2SSitDown
     up = 3;//起立 C2SSitDown
     auto_buyin = 4; //C2SAutoBuyin
-    show_cards = 5; //玩家亮牌 C2SShowCards
+    cards = 5; //玩家亮牌 C2SShowCards
 }
 
 message C2SShowCards {
