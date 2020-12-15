@@ -16,6 +16,11 @@ enum MsgIDC2S{
     up = 3;//起立 C2SSitDown
     auto_buyin = 4; //C2SAutoBuyin
     cards = 5; //玩家亮牌 C2SShowCards
+    test_get_robot = 6;//测试-获取机器人
+}
+
+message C2SGetRobot {
+
 }
 
 message C2SShowCards {
