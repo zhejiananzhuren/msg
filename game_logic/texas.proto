@@ -175,10 +175,12 @@ message S2CUser {
     bool is_offline = 11;//true:离线
 }
 
+
 //结束比赛[]
 message S2CEndGame {
     repeated Pot pots = 1;//各个池子赢家
     repeated S2CHoleCards user_hole_cards = 2; //各个玩家手牌
+    int64 pot = 3;//扣完税的底池 900
 }
 
 message S2CWinner {
