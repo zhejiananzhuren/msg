@@ -62,6 +62,7 @@ enum ReMsgIDS2C{
     round_finish = 10;//发消息9之前给客户端发，用作动画展示，汇拢金币 RoundFinish
     user_offline = 11;//用户掉线
     show_cards = 12;//玩家亮牌  S2CShowCards
+    winner = 13;//推送赢家信息
 }
 
 //玩家亮手牌
@@ -178,7 +179,11 @@ message S2CUser {
 message S2CEndGame {
     repeated Pot pots = 1;//各个池子赢家
     repeated S2CHoleCards user_hole_cards = 2; //各个玩家手牌
+}
 
+message S2CWinner {
+    int64 uid = 1;
+    int64 stack = 2;//赢的钱
 }
 
 //玩家id对应手牌[]
