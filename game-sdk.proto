@@ -21,6 +21,7 @@ enum ErrorType
     GameMaintenance = 20006; //游戏维护
     OtherLogin = 20007;//其他人使用该账号，挤下线
     BalanceNotEnough = 20008;//余额不足
+    NoRoom = 20009;//当前没有房间
 }
 
 enum CMDKIND //消息种类
