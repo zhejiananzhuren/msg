@@ -158,6 +158,7 @@ message S2CScene{
     int64 total_time = 16;//玩家发言总时间
     string agora_token = 17;//声网token
     bool auto_buyin = 18;// true:自动买入
+    int32 card_power = 19;//牌力 万分率
 }
 
 //用户信息[]
