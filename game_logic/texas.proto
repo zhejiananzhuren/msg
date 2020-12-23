@@ -17,6 +17,11 @@ enum MsgIDC2S{
     auto_buyin = 4; //C2SAutoBuyin
     cards = 5; //玩家亮牌 C2SShowCards
     test_get_robot = 6;//测试-获取机器人
+    buy_com_card = 7; //花钱买提前看公牌
+}
+
+message C2SBuyComCard {
+    int32 card = 1; //0：flop  1:turn 2:river
 }
 
 message C2SGetRobot {
@@ -63,6 +68,7 @@ enum ReMsgIDS2C{
     user_offline = 11;//用户掉线
     show_cards = 12;//玩家亮牌  S2CShowCards
     winner = 13;//推送赢家信息
+
 }
 
 //玩家亮手牌
