@@ -41,7 +41,7 @@ enum CMDKIND //消息种类
     //进入房间
     INTO_TABLE = 6;     //C2SIntoTable
     //刷新自己金币余额
-    SCORE_BALANCE = 7;
+    SCORE_BALANCE = 7; //S2CBalance
 }
 
 //服务器通知客户端消息[0]
@@ -54,10 +54,6 @@ message S2CNoticeMsg{
     bytes body = 3;
     //消息id
     int64 msgId = 4;
-}
-
-message S2CBalance {
-    int64 balance = 1; //余额
 }
 
 message S2COnline {
