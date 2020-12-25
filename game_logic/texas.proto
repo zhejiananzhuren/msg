@@ -100,7 +100,7 @@ message S2CRoundUp {
     int32 card_power = 4;//牌力 万分率
 }
 
-message S2CUserUserBuyin {
+message S2CUserBuyin {
     repeated UserBuyin arr = 1;
 }
 message UserBuyin {
