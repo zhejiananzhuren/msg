@@ -34,7 +34,7 @@ message C2SGetRobot {
 }
 
 message C2SShowCards {
-
+    bytes cards = 1;
 }
 
 message C2SAutoBuyin {
