@@ -42,6 +42,8 @@ enum CMDKIND //消息种类
     INTO_TABLE = 6;     //C2SIntoTable
     //刷新自己金币余额
     SCORE_BALANCE = 7; //S2CBalance
+    //新匹配牌桌
+    NEW_TABLE = 8;//
 }
 
 //服务器通知客户端消息[0]
