@@ -18,6 +18,11 @@ enum MsgIDC2S{
     cards = 5; //玩家亮牌 C2SShowCards
     test_get_robot = 6;//测试-获取机器人
     buy_com_card = 7; //花钱买提前看公牌
+    new_table = 8;//新建牌桌
+}
+
+message C2SNewTable {
+
 }
 
 message C2SBuyComCard {
