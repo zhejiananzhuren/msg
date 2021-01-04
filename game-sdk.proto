@@ -22,6 +22,7 @@ enum ErrorType
     OtherLogin = 20007;//其他人使用该账号，挤下线
     BalanceNotEnough = 20008;//余额不足
     NoRoom = 20009;//当前没有房间
+    StopServer = 20010 ;//停服维护中
 }
 
 enum CMDKIND //消息种类
