@@ -48,6 +48,16 @@ enum CMDKIND //消息种类
     CREATE_TABLE = 9;//C2SCreateTable
     //牌桌列表
     TABLE_LIST = 10;//C2STableList  S2CTableList
+    //搜索好友
+    SEARCH_FRIEND = 11;//C2SSearchFriend S2CSearchFriend
+    //好友申请
+    FRIEND_REQ = 12;//C2SFriendReq
+    //处理好友申请
+    DEAL_FRIEND_REQ = 13;//
+    //好友申请列表
+    FRIEND_REQ_LIST = 14;
+    //好友列表
+    FRIEND_LIST = 15;
 }
 
 //服务器通知客户端消息[0]
@@ -60,6 +70,25 @@ message S2CNoticeMsg{
     bytes body = 3;
     //消息id
     int64 msgId = 4;
+}
+
+message C2SFriendReq {
+    int64 toUid = 1;
+}
+
+message C2SSearchFriend {
+    int64 fid = 1;
+}
+
+message S2CSearchFriend {
+    User user = 1;
+}
+
+message User {
+    int64 uid = 1;
+    string nick = 2;
+    string head = 3;
+    int32 lv = 4;
 }
 
 message C2SCreateTable {
