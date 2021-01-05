@@ -85,6 +85,7 @@ message Table {
     int64 buyin = 4;//最小带入
     bool isAnchorOwner = 5;//是否主播房
     int32 userCount = 6;//人数
+    int64 tableId = 7;
 }
 
 message S2COnline {
