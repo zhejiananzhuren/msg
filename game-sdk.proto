@@ -44,6 +44,10 @@ enum CMDKIND //消息种类
     SCORE_BALANCE = 7; //S2CBalance
     //新匹配牌桌
     NEW_TABLE = 8;//
+    //创建牌桌
+    CREATE_TABLE = 9;//C2SCreateTable
+    //牌桌列表
+    TABLE_LIST = 10;//C2STableList  S2CTableList
 }
 
 //服务器通知客户端消息[0]
@@ -56,6 +60,29 @@ message S2CNoticeMsg{
     bytes body = 3;
     //消息id
     int64 msgId = 4;
+}
+
+message C2SCreateTable {
+    int32 sbIndex = 1;// 下标，0：5k   1：10k
+    bool isPrivate = 2;//true:私密房
+    int32 buyIn = 3;//最小带入
+}
+
+message C2STableList {
+    int32 page = 1; //页码
+    int32 pageSize = 2; //每页要显示的数量
+}
+
+message S2CTableList {
+    int64 total = 1;
+    repeated Table list = 2;
+}
+
+message Table {
+    string head = 1;//房主头像
+    int32 lv = 2;//房主等级
+    int64 sb = 3;//小盲
+    int64 buyin = 4;//最小带入
 }
 
 message S2COnline {
