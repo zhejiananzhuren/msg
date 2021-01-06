@@ -53,11 +53,11 @@ enum CMDKIND //消息种类
     //好友申请
     FRIEND_REQ = 12;//C2SFriendReq
     //处理好友申请
-    DEAL_FRIEND_REQ = 13;//
+    DEAL_FRIEND_REQ = 13;//C2SDealFriendReq
     //好友申请列表
-    FRIEND_REQ_LIST = 14;
+    FRIEND_REQ_LIST = 14;//C2SFriendReqList S2CFriendReqList
     //好友列表
-    FRIEND_LIST = 15;
+    FRIEND_LIST = 15;//C2SFriendList S2CFriendList
 }
 
 //服务器通知客户端消息[0]
@@ -84,11 +84,34 @@ message S2CSearchFriend {
     User user = 1;
 }
 
+message C2SDealFriendReq {
+    int64 applyId = 1;//申请人id
+    bool agree = 2;//true:同意好友申请,false:拒绝
+}
+
+message C2SFriendReqList {
+
+}
+
+message S2CFriendReqList {
+    repeated User user = 1;
+}
+
+message C2SFriendList {
+    int32 page = 1;
+    int32 size = 2;
+}
+message S2CFriendList {
+    int32 total = 1;//总量 （分页用）
+    repeated User users = 2;//
+}
+
 message User {
     int64 uid = 1;
     string nick = 2;
     string head = 3;
     int32 lv = 4;
+    bool isOnline = 5; //true:在线
 }
 
 message C2SCreateTable {
