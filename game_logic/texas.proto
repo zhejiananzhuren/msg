@@ -80,8 +80,9 @@ enum ReMsgIDS2C{
 }
 
 message S2CGift {
-    int64 uid = 1;
-    int32 gift_id = 2;//礼物id
+    int64 from = 1; //送礼物人ID
+    int64 to = 2;//送给谁的id
+    int32 gift_id = 3;//礼物id
 }
 
 message S2CNoScore {
