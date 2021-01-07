@@ -23,6 +23,7 @@ enum MsgIDC2S{
 
 message C2SGift {
     int32 id = 1; // 礼物id
+    int64 to = 2;//送给谁id
 }
 
 message C2SBuyComCard {
