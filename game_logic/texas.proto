@@ -18,8 +18,12 @@ enum MsgIDC2S{
     cards = 5; //玩家亮牌 C2SShowCards
     test_get_robot = 6;//测试-获取机器人
     buy_com_card = 7; //花钱买提前看公牌
+    gift = 8;//赠送礼物
 }
 
+message C2SGift {
+    int32 id = 1; // 礼物id
+}
 
 message C2SBuyComCard {
     int32 card = 1; //0：flop  1:turn 2:river
@@ -72,6 +76,12 @@ enum ReMsgIDS2C{
     com_card = 14;//花钱购买公牌
     stop_server = 15;//停服
     no_score = 16;//余额不足，弹出提示框
+    send_gift = 17;//收到玩家赠送礼物
+}
+
+message S2CGift {
+    int64 uid = 1;
+    int32 gift_id = 2;//礼物id
 }
 
 message S2CNoScore {
