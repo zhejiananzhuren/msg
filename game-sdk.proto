@@ -130,6 +130,7 @@ message C2SCreateTable {
 message C2STableList {
     int32 page = 1; //页码
     int32 pageSize = 2; //每页要显示的数量
+    bool isFriend = 3;//true：好友列表房
 }
 
 message S2CTableList {
