@@ -60,6 +60,8 @@ enum CMDKIND //消息种类
     FRIEND_LIST = 15;//C2SFriendList S2CFriendList
     //升级奖励
     LV_UP_AWARD = 16;//S2CLvUpAward
+    //邀请好友进入游戏
+    INVITE_GAME = 17;//
 }
 
 //服务器通知客户端消息[0]
@@ -236,4 +238,13 @@ message C2SMarquee {
       string content = 3;
       //规则id 来自config
       int64 ruleId = 4;
+}
+
+//邀请好友进游戏
+message C2SInviteGame {
+    repeated int64 fids = 1;//好友的id（数组，可邀请多个）
+}
+message S2CInviteGame {
+    int64 tableId = 1;//房间号
+    int64 fromUid = 2;//邀请人
 }
