@@ -87,7 +87,7 @@ message C2SFriendReq {
 }
 
 message C2SSearchFriend {
-    int64 fid = 1;
+    string show_id = 1;
 }
 
 message S2CSearchFriend {
