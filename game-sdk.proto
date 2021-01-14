@@ -62,6 +62,8 @@ enum CMDKIND //消息种类
     LV_UP_AWARD = 16;//S2CLvUpAward
     //邀请好友进入游戏
     INVITE_GAME = 17;//C2SInviteGame S2CInviteGame
+    //个人中心
+    PERSONAL = 18;// C2SPersonal S2CPersonal
 }
 
 //服务器通知客户端消息[0]
@@ -248,4 +250,15 @@ message C2SInviteGame {
 message S2CInviteGame {
     int64 tableId = 1;//房间号
     int64 fromUid = 2;//邀请人
+}
+
+//个人中心
+message C2SPersonal {
+
+}
+message S2CPersonal {
+    bool isBindFb = 1;//true:绑定过Facebook
+    int32 shareCount = 2;//当日分享次数
+    int64 fbScore = 3;//绑定fb送的钱
+    int64 shareScore = 4;//分享送的钱
 }
