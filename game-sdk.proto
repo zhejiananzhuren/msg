@@ -64,6 +64,8 @@ enum CMDKIND //消息种类
     INVITE_GAME = 17;//C2SInviteGame S2CInviteGame
     //个人中心
     PERSONAL = 18;// C2SPersonal S2CPersonal
+    //反馈
+    FEEDBACK = 19;//C2SFeedback S2CFeedback
 }
 
 //服务器通知客户端消息[0]
@@ -261,4 +263,12 @@ message S2CPersonal {
     int32 shareCount = 2;//当日分享次数
     int64 fbScore = 3;//绑定fb送的钱
     int64 shareScore = 4;//分享送的钱
+}
+
+//反馈
+message C2SFeedback {
+    string content = 1;//反馈内容
+}
+message S2CFeedback {
+
 }
