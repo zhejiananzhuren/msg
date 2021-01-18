@@ -66,6 +66,8 @@ enum CMDKIND //消息种类
     PERSONAL = 18;// C2SPersonal S2CPersonal
     //反馈
     FEEDBACK = 19;//C2SFeedback S2CFeedback
+    //删除好友
+    DEL_FRIEND = 20;//C2SDelFriend
 }
 
 //服务器通知客户端消息[0]
@@ -271,4 +273,9 @@ message C2SFeedback {
 }
 message S2CFeedback {
 
+}
+
+//删除好友
+message C2SDelFriend {
+    int64 fid = 1;//好友的uid
 }
