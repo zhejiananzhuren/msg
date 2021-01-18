@@ -279,3 +279,6 @@ message S2CFeedback {
 message C2SDelFriend {
     int64 fid = 1;//好友的uid
 }
+message S2CDelFriend {
+
+}
