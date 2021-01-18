@@ -68,6 +68,8 @@ enum CMDKIND //消息种类
     FEEDBACK = 19;//C2SFeedback S2CFeedback
     //删除好友
     DEL_FRIEND = 20;//C2SDelFriend
+    //举报
+    REPORT = 21;//C2SReport
 }
 
 //服务器通知客户端消息[0]
@@ -281,4 +283,10 @@ message C2SDelFriend {
 }
 message S2CDelFriend {
 
+}
+
+//举报
+message C2SReport {
+    int64 rid = 1;//举报谁
+    string content = 2;//举报内容
 }
