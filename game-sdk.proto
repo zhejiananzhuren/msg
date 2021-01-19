@@ -53,7 +53,7 @@ enum CMDKIND //消息种类
     //好友申请
     FRIEND_REQ = 12;//C2SFriendReq S2CFriendReq
     //处理好友申请
-    DEAL_FRIEND_REQ = 13;//C2SDealFriendReq
+    DEAL_FRIEND_REQ = 13;//C2SDealFriendReq S2CDealFriendReq
     //好友申请列表
     FRIEND_REQ_LIST = 14;//C2SFriendReqList S2CFriendReqList
     //好友列表
@@ -108,6 +108,10 @@ message S2CSearchFriend {
 message C2SDealFriendReq {
     int64 applyId = 1;//申请人id
     bool agree = 2;//true:同意好友申请,false:拒绝
+}
+
+message S2CDealFriendReq {
+
 }
 
 message C2SFriendReqList {
