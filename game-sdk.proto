@@ -51,7 +51,7 @@ enum CMDKIND //消息种类
     //搜索好友
     SEARCH_FRIEND = 11;//C2SSearchFriend S2CSearchFriend
     //好友申请
-    FRIEND_REQ = 12;//C2SFriendReq
+    FRIEND_REQ = 12;//C2SFriendReq S2CFriendReq
     //处理好友申请
     DEAL_FRIEND_REQ = 13;//C2SDealFriendReq
     //好友申请列表
@@ -93,6 +93,9 @@ message S2CLvUpAward {
 message C2SFriendReq {
     int64 toUid = 1;
 }
+message S2CFriendReq {
+
+}
 
 message C2SSearchFriend {
     string show_id = 1;
@@ -122,6 +125,7 @@ message C2SFriendList {
 message S2CFriendList {
     int32 total = 1;//总量 （分页用）
     repeated User users = 2;//
+    string rtmToken = 3;//声网聊天的token
 }
 
 message User {
