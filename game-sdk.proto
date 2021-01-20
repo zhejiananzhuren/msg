@@ -172,6 +172,7 @@ message Table {
 message S2COnline {
     int64 tableId = 1; // 牌桌id
     int32 state = 2;// 0:成功登录
+    string rtmToken = 3;//声网聊天token
 }
 
 //跑马灯[]
