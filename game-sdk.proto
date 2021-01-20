@@ -88,6 +88,8 @@ message S2CLvUpAward {
     int32 lv = 1;
     int64 balance = 2;//当前最新余额
     int64 award = 3;//奖励的金额
+    int64 exp = 4;//当前经验
+    int64 nextExp = 5;//下一次升级所需经验
 }
 
 message C2SFriendReq {
