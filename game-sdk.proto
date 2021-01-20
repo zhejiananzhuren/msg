@@ -306,7 +306,7 @@ message C2SReport {
 
 //礼物
 message C2SGift {
-    int64 giftId = 1;//礼物id
+    int32 giftId = 1;//礼物id
     int64 toUid = 2;//送给谁
 }
 message S2CGift {
