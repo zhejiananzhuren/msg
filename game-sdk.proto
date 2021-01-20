@@ -309,4 +309,6 @@ message C2SGift {
     int64 giftId = 1;//礼物id
     int64 toUid = 2;//送给谁
 }
-message S2CGift {}
+message S2CGift {
+    bool ok = 1;//true:允许发送（接下来给声网发送聊天礼物消息)
+}
