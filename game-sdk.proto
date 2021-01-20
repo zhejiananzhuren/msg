@@ -113,7 +113,7 @@ message C2SDealFriendReq {
 }
 
 message S2CDealFriendReq {
-
+    bool agree = 1;//
 }
 
 message C2SFriendReqList {
