@@ -70,6 +70,8 @@ enum CMDKIND //消息种类
     DEL_FRIEND = 20;//C2SDelFriend
     //举报
     REPORT = 21;//C2SReport
+    //礼物
+    GIFT = 22;//送礼 C2SGift S2CGift
 }
 
 //服务器通知客户端消息[0]
@@ -301,3 +303,10 @@ message C2SReport {
     int64 rid = 1;//举报谁
     string content = 2;//举报内容
 }
+
+//礼物
+message C2SGift {
+    int64 giftId = 1;//礼物id
+    int64 toUid = 2;//送给谁
+}
+message S2CGift {}
