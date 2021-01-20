@@ -101,6 +101,7 @@ message S2CFriendReq {
     int64 from = 1;//申请人
     string name = 2;//申请人昵称
     string head = 3;//申请人头像
+    int32 level = 4;//玩家等级
 }
 
 message C2SSearchFriend {
