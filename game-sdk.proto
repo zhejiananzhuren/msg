@@ -98,7 +98,9 @@ message C2SFriendReq {
     int64 toUid = 1;
 }
 message S2CFriendReq {
-
+    int64 from = 1;//申请人
+    string name = 2;//申请人昵称
+    string head = 3;//申请人头像
 }
 
 message C2SSearchFriend {
