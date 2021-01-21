@@ -88,6 +88,7 @@ message S2CGift {
 
 message S2CNoScore {
     int32 ticker = 1;//倒计时 秒
+    int64 buyin = 2;//最小带入
 }
 
 message S2CComCard {
