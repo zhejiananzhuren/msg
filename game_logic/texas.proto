@@ -76,7 +76,7 @@ enum ReMsgIDS2C{
     winner = 13;//推送赢家信息
     com_card = 14;//花钱购买公牌
     stop_server = 15;//停服
-    no_score = 16;//余额不足，弹出提示框
+    no_score = 16;//余额不足，弹出提示框 S2CNoScore
     send_gift = 17;//收到玩家赠送礼物
 }
 
@@ -87,6 +87,7 @@ message S2CGift {
 }
 
 message S2CNoScore {
+    int32 ticker = 1;//倒计时 秒
 }
 
 message S2CComCard {
