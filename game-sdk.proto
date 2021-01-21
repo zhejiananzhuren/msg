@@ -272,6 +272,10 @@ message C2SInviteGame {
 message S2CInviteGame {
     int64 tableId = 1;//房间号
     int64 fromUid = 2;//邀请人
+    int64 sb = 3;//房间小盲
+    int64 buyin = 4;//最小带入
+    string name = 5;//邀请人的昵称
+    string head = 6;//头像
 }
 
 //个人中心
