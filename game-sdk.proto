@@ -71,7 +71,7 @@ enum CMDKIND //消息种类
     //举报
     REPORT = 21;//C2SReport
     //礼物
-    GIFT = 22;//送礼 C2SGift S2CGift
+    GIFT = 22;//送礼 C2SSendGift S2CSendGift
 }
 
 //服务器通知客户端消息[0]
@@ -308,10 +308,10 @@ message C2SReport {
 }
 
 //礼物
-message C2SGift {
+message C2SSendGift {
     int32 giftId = 1;//礼物id
     int64 toUid = 2;//送给谁
 }
-message S2CGift {
+message S2CSendGift {
     bool ok = 1;//true:允许发送（接下来给声网发送聊天礼物消息)
 }
