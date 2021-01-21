@@ -276,6 +276,7 @@ message S2CInviteGame {
     int64 buyin = 4;//最小带入
     string name = 5;//邀请人的昵称
     string head = 6;//头像
+    int64 time = 7;//时间
 }
 
 //个人中心
