@@ -277,6 +277,7 @@ message S2CInviteGame {
     string name = 5;//邀请人的昵称
     string head = 6;//头像
     int64 time = 7;//时间
+    int32 level = 8;//玩家等级
 }
 
 //个人中心
