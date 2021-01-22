@@ -328,7 +328,7 @@ message S2CSendGift {
 message C2SSingleChat {
     string content = 1;//聊天内容
     int64 toUid = 2;//
-    int32 msgType = 3;//消息类型，后期可能会要，暂时不用
+    int32 msgType = 3;//0:文字消息，1:图片消息，2:视频消息
 }
 message S2CSingleChat {
     int64 from = 1;//谁的消息
