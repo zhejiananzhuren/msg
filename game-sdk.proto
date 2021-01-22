@@ -72,6 +72,8 @@ enum CMDKIND //消息种类
     REPORT = 21;//C2SReport
     //礼物
     GIFT = 22;//送礼 C2SSendGift S2CSendGift
+    //单聊
+    SINGLE_CHAT = 23;//单聊 C2SSingleChat S2CSingleChat
 }
 
 //服务器通知客户端消息[0]
@@ -320,4 +322,18 @@ message C2SSendGift {
 }
 message S2CSendGift {
     bool ok = 1;//true:允许发送（接下来给声网发送聊天礼物消息)
+}
+
+//单聊
+message C2SSingleChat {
+    string content = 1;//聊天内容
+    int64 toUid = 2;//
+    int32 msgType = 3;//消息类型，后期可能会要，暂时不用
+}
+message S2CSingleChat {
+    int64 from = 1;//谁的消息
+    string content = 2;//内容
+    int64 msgId = 3;//消息id
+    int64 time = 4;//
+    int32 msgType = 5;
 }
