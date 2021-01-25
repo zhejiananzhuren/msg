@@ -74,6 +74,8 @@ enum CMDKIND //消息种类
     GIFT = 22;//送礼 C2SSendGift S2CSendGift
     //单聊
     SINGLE_CHAT = 23;//单聊 C2SSingleChat S2CSingleChat
+    //聊天记录
+    CHAT_RECORD = 24;//单聊 C2SChatRecord S2CChatRecord
 }
 
 //服务器通知客户端消息[0]
@@ -336,4 +338,18 @@ message S2CSingleChat {
     int64 msgId = 3;//消息id
     int64 time = 4;//
     int32 msgType = 5;
+}
+
+message C2SChatRecord {
+    int32 page = 1;
+    int32 size = 2;
+    int64 toUid = 3;//对方id
+}
+message S2CChatRecord {
+    int64 from = 1;//自己的id
+    int64 toUid = 2;//对方的id
+    string content = 3;//内容
+    int64 time = 4;//
+    int32 msgType = 5;
+    int64 msgId = 6;
 }
