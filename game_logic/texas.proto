@@ -19,6 +19,7 @@ enum MsgIDC2S{
     test_get_robot = 6;//测试-获取机器人
     buy_com_card = 7; //花钱买提前看公牌
     gift = 8;//赠送礼物
+    get_user_info = 9;//获取用户详情 C2SUserInfo
 }
 
 message C2SGift {
@@ -56,6 +57,10 @@ message C2SChat {
     string msg = 2; //内容
 }
 
+message C2SUserInfo {
+    int64 uid = 1;//要获取详情的uid
+}
+
 //-------------------以下是S2C的消息-----------------
 
 //枚举消息类型
@@ -78,6 +83,7 @@ enum ReMsgIDS2C{
     stop_server = 15;//停服
     no_score = 16;//余额不足，弹出提示框 S2CNoScore
     send_gift = 17;//收到玩家赠送礼物
+    user_info = 18;//用户详情 S2CUserInfo
 }
 
 message S2CGift {
@@ -211,8 +217,6 @@ message S2CUser {
     int32 index = 9;//座位号
     string ip = 10; //ip地址，用于展示国旗
     bool is_offline = 11;//true:离线
-    bool is_friend = 12;//true：和自己是好友
-    int32 gift_count = 13;//收到的礼物数量
 }
 
 
@@ -246,4 +250,9 @@ message S2CHoleCards {
 message Pot {
     int64 stack = 1;//池子金额
     int64 winner = 2;//赢家
+}
+
+message S2CUserInfo {
+    bool is_friend = 1;//true：和自己是好友
+    int32 gift_count = 2;//收到的礼物数量
 }
