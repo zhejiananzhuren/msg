@@ -346,6 +346,10 @@ message C2SChatRecord {
     int64 toUid = 3;//对方id
 }
 message S2CChatRecord {
+    int32 total = 1;//总量（分页用）
+    repeated SingleChat list = 2;//聊天记录
+}
+message SingleChat {
     int64 from = 1;//自己的id
     int64 toUid = 2;//对方的id
     string content = 3;//内容
