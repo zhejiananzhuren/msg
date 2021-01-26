@@ -297,6 +297,9 @@ message S2CPersonal {
     int32 shareCount = 2;//当日分享次数
     int64 fbScore = 3;//绑定fb送的钱
     int64 shareScore = 4;//分享送的钱
+    int64 exp = 5;//
+    int64 nextExp = 6;//下一级需要经验
+    int32 level = 7;//等级
 }
 
 //反馈
