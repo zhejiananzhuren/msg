@@ -78,6 +78,8 @@ enum CMDKIND //消息种类
     CHAT_RECORD = 24;// C2SChatRecord S2CChatRecord
     //聊天列表
     CHAT_LIST = 25;// C2SChatList S2CChatList
+    //更新未读消息
+    UPDATE_UNREAD = 26;// C2SUpdateUnread S2CUpdateUnread
 }
 
 //服务器通知客户端消息[0]
@@ -368,3 +370,9 @@ message ChatList {
     User user = 1;
     int32 unreadCount = 2;//未读数量
 }
+
+//更新未读
+message C2SUpdateUnread {
+    int64 uid = 1;//对方的uid
+}
+message S2CUpdateUnread {}
