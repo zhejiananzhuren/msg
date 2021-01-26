@@ -365,6 +365,6 @@ message S2CChatList {
     repeated ChatList list = 1;
 }
 message ChatList {
-    int64 uid = 1;
+    User user = 1;
     int32 unreadCount = 2;//未读数量
 }
