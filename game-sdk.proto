@@ -362,8 +362,9 @@ message SingleChat {
 
 message C2SChatList{}
 message S2CChatList {
+    repeated ChatList list = 1;
+}
+message ChatList {
     int64 uid = 1;
-    string name = 2;//
-    string head = 3;//
-    int32 unreadCount = 4;//未读数量
+    int32 unreadCount = 2;//未读数量
 }
