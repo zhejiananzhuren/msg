@@ -369,6 +369,7 @@ message S2CChatList {
 message ChatList {
     User user = 1;
     int32 unreadCount = 2;//未读数量
+    int64 time = 3;//时间（秒）
 }
 
 //更新未读
