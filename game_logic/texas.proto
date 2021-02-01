@@ -160,6 +160,7 @@ message S2CStart {
     int64 sb = 3;//小盲玩家id
     int64 bb = 4;//大盲玩家id
     int32 card_power = 5;//手牌牌力 万分率
+    repeated S2CUser users = 6;//玩家，主要是开始的时候显示经验、等级
 }
 
 //通知玩家发言[]
@@ -218,6 +219,8 @@ message S2CUser {
     string ip = 10; //ip地址，用于展示国旗
     bool is_offline = 11;//true:离线
     int32 level = 12;//等级
+    int64 exp = 13;//该玩家当前经验
+    int64 next_exp = 14;//下一级经验
 }
 
 
@@ -232,8 +235,6 @@ message S2CEndGame {
 message UserStack {
     int64 uid = 1;
     int64 stack = 2;
-    int64 exp = 3;//该玩家当前经验
-    int32 level = 4;//玩家当前等级
 }
 
 message S2CWinner {
