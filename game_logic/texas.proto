@@ -260,3 +260,9 @@ message S2CUserInfo {
     bool is_friend = 1;//true：和自己是好友
     int32 gift_count = 2;//收到的礼物数量
 }
+
+message S2CChat {
+    int64 from = 1;//发言人
+    string msg = 2;//内容
+    int32 type = 3;//类型（暂时没有用到，保留字段）
+}
