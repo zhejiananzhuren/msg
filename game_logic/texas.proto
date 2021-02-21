@@ -84,6 +84,7 @@ enum ReMsgIDS2C{
     no_score = 16;//余额不足，弹出提示框 S2CNoScore
     send_gift = 17;//收到玩家赠送礼物
     user_info = 18;//用户详情 S2CUserInfo
+    table_chat = 19;//房间内聊天 S2CChat
 }
 
 message S2CGift {
