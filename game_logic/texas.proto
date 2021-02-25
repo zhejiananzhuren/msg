@@ -20,6 +20,7 @@ enum MsgIDC2S{
     buy_com_card = 7; //花钱买提前看公牌
     gift = 8;//赠送礼物
     get_user_info = 9;//获取用户详情 C2SUserInfo
+    gift_sender_list_req = 10;//获取围观用户列表 C2SUserInfo
 }
 
 message C2SGift {
@@ -86,6 +87,7 @@ enum ReMsgIDS2C{
     user_info = 18;//用户详情 S2CUserInfo
     table_chat = 19;//房间内聊天 S2CChat
     cardtype_award = 20;//牌型奖励 S2CCardtypeAward
+    gift_sender_list_res = 21;//围观用户列表 S2CGiftSenderList
 }
 
 message S2CGift {
@@ -273,4 +275,14 @@ message S2CCardtypeAward {
     int64 uid = 1;//用户id
     int32 cardtype = 2;//牌型
     int64 score = 3;//奖励金额
+}
+
+message S2CGiftSenderList {
+    repeated S2CGiftSender list = 1;
+}
+message S2CGiftSender{
+    int64 uid = 1;
+    string name = 2;//
+    string head = 3;
+    int64 gift_count = 4;//送礼价值数量
 }
