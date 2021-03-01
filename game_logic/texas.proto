@@ -286,4 +286,5 @@ message S2CGiftSender{
     string name = 2;//
     string head = 3;
     int64 gift_count = 4;//送礼价值数量
+    int32 lv = 5;//等级
 }
