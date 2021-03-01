@@ -269,6 +269,7 @@ message S2CChat {
     int64 from = 1;//发言人
     string msg = 2;//内容
     int32 type = 3;//类型（暂时没有用到，保留字段）
+    string name = 4;//昵称
 }
 
 message S2CCardtypeAward {
