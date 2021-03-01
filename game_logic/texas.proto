@@ -275,6 +275,7 @@ message S2CCardtypeAward {
     int64 uid = 1;//用户id
     int32 cardtype = 2;//牌型
     int64 score = 3;//奖励金额
+    bytes cards = 4;//牌
 }
 
 message S2CGiftSenderList {
