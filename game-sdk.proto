@@ -80,6 +80,15 @@ enum CMDKIND //消息种类
     CHAT_LIST = 25;// C2SChatList S2CChatList
     //更新未读消息
     UPDATE_UNREAD = 26;// C2SUpdateUnread S2CUpdateUnread
+    //印度paytm支付
+    PAYTM = 27;// C2SPaytm S2CPaytm
+}
+
+message C2SPaytm {
+    string payToken = 1;//
+}
+message S2CPaytm {
+
 }
 
 //服务器通知客户端消息[0]
