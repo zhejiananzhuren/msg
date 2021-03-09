@@ -85,7 +85,7 @@ enum CMDKIND //消息种类
     //开始看广告时发送
     START_AD = 28;//C2SStartAd S2CStartAd
     //结束看广告时发送
-    START_AD = 29;//C2SEndAd S2CEndAd
+    END_AD = 29;//C2SEndAd S2CEndAd
 }
 
 message C2SPaytm {
