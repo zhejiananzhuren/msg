@@ -82,12 +82,30 @@ enum CMDKIND //消息种类
     UPDATE_UNREAD = 26;// C2SUpdateUnread S2CUpdateUnread
     //印度paytm支付
     PAYTM = 27;// C2SPaytm S2CPaytm
+    //开始看广告时发送
+    START_AD = 28;//C2SStartAd S2CStartAd
+    //结束看广告时发送
+    START_AD = 29;//C2SEndAd S2CEndAd
 }
 
 message C2SPaytm {
     string payToken = 1;//
 }
 message S2CPaytm {
+
+}
+
+message C2SStartAd {
+
+}
+message S2CStartAd {
+
+}
+
+message C2SEndAd {
+
+}
+message S2CEndAd {
 
 }
 
