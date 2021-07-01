@@ -86,6 +86,17 @@ enum CMDKIND //消息种类
     START_AD = 28;//C2SStartAd S2CStartAd
     //结束看广告时发送
     END_AD = 29;//C2SEndAd S2CEndAd
+    //
+    LOTTERY = 30;//C2SLottery S2CLottery
+}
+
+message C2SLottery {
+
+}
+
+message S2CLottery {
+    int64 score = 1;//中奖金额
+    int64 remain = 2;//余额
 }
 
 message C2SPaytm {
